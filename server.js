@@ -1,46 +1,27 @@
+//import {Dal_Stub} from "./Stubs";'
+
+const Dal= require("Domain/Data/Dal.js");
 const express = require('express');
 const app = express();
 const port = 8080;
-Lawyers = [
-    {"name": "aa", "password": "11", "email": "aa@gmail.com"},
-    {"name": "bb", "password": "11", "email": "bb@gmail.com"},
-    {"name": "cc", "password": "22", "email": "cc@gmail.com"}
-];
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
 
-Costumers = [
-    {"name": "aa1", "password": "11", "email": "aa1@gmail.com"},
-    {"name": "bb1", "password": "11", "email": "bb1@gmail.com"},
-    {"name": "cc1", "password": "22", "email": "cc1@gmail.com"}
-];
-
-const properties = [
-    {block: 1, building: 2, apartment: 1},
-    {block: 1, building: 1, apartment: 1},
-    {block: 1, building: 1, apartment: 2},
-    {block: 4, building: 1, apartment: 1},
-    {block: 5, building: 1, apartment: 1},
-    {block: 6, building: 1, apartment: 1},
-    {block: 7, building: 1, apartment: 1},
-    {block: 9, building: 1, apartment: 1},
-    {block: 10, building: 1, apartment: 1},
-];
+let data = new Dal();
 
 app.get('/apartments/:block?/:building?/:apartment?', (req, res) => {
     const block = req.params.block;
     const building = req.params.building;
     const apartment = req.params.apartment;
-    let filteredProperties = properties;
+    let filteredProperties;
     console.log(`Block: ${block}, building: ${building}, apartment: ${apartment}`);
 
     if (block) {
-        filteredProperties = filteredProperties.filter(apartment => {
-            return apartment.block.toString() === block
-        });
-        console.log(filteredProperties);
+        data.get_buildings(block).toString() === block ? filteredProperties = data.get_buildings(block).toString(): null;
         if (building) {
-            filteredProperties = filteredProperties.filter(apartment => apartment.building.toString() === building);
+            data.get_buildings(building).toString() === building ? filteredProperties = data.get_appartements(building).toString(): null;
             if (apartment) {
-                filteredProperties = filteredProperties.filter(property => property.apartment.toString() === apartment);
+                data.get_buildings(apartment).toString() === apartment ? filteredProperties = data.get_appartement(apartment).toString(): null;
             }
         }
     }
@@ -48,6 +29,24 @@ app.get('/apartments/:block?/:building?/:apartment?', (req, res) => {
     res.send(filteredProperties);
 });
 
+app.post('/apartments/:block?/:building?/:apartment?', (req, res) => {
+    const block = req.params.block;
+    const building = req.params.building;
+    const apartment = req.params.apartment;
+    let filteredProperties;
+    console.log(`Block: ${block}, building: ${building}, apartment: ${apartment}`);
 
+    if (block) {
+        data.get_buildings(block).toString() === block ? filteredProperties = data.get_buildings(block).toString(): null;
+        if (building) {
+            data.get_buildings(building).toString() === building ? filteredProperties = data.get_appartements(building).toString(): null;
+            if (apartment) {
+                data.get_buildings(apartment).toString() === apartment ? filteredProperties = data.get_appartement(apartment).toString(): null;
+            }
+        }
+    }
+
+    res.send(filteredProperties);
+});
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
