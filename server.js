@@ -1,6 +1,6 @@
 //import {Dal_Stub} from "./Stubs";'
 
-const Dal= require("Domain/Data/Dal.js");
+const Dal= require("Domain/Data/Dal/js");
 const express = require('express');
 const app = express();
 const port = 8080;
