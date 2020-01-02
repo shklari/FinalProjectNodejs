@@ -1,22 +1,14 @@
+import "DataAccessLayer";
 const express = require('express');
 const app = express();
 const port = 3000;
-const apartments = [
-    {block: 1, building: 2, apartment: 1},
-    {block: 1, building: 1, apartment: 1},
-    {block: 1, building: 1, apartment: 2},
-    {block: 4, building: 1, apartment: 1},
-    {block: 5, building: 1, apartment: 1},
-    {block: 6, building: 1, apartment: 1},
-    {block: 7, building: 1, apartment: 1},
-    {block: 9, building: 1, apartment: 1},
-    {block: 10, building: 1, apartment: 1},
-];
+
+let data = DataAccessLayer();
 
 app.get('/apartments/:block?/:building?/:apartment?', (req, res) => {
-    const block = req.params.block;
-    const building = req.params.building;
-    const apartment = req.params.apartment;
+    const block = data.getBlock(req.params.block);
+    const building = data.getBuilding(req.params.building);
+    const apartment = data.getApartment(req.params.apartment);
     let filteredProperties = apartments;
     console.log(`Block: ${block}, building: ${building}, apartment: ${apartment}`);
 
