@@ -23,6 +23,9 @@ const properties = [
 ];
 
 
+const buyer1 = {"id": 111, "name": "avabash"};
+const buyer2 = {"id": 222, "name": "yosi"};
+
 const purchases = [
     {"apartement_idx": {block: 1, building: 2, apartment: 1}, "buyer1": buyer1, "buyer2": null,
         "parking1": 1, "parking2": 2, "garage_idx": 1, "purchase_date": "1/1/2020", "price": 12000,
@@ -33,6 +36,3 @@ const purchases = [
         "assesment_number": 2, "reference": 2, "bank": "leumi", "comments": false, "scanning_form": null,
         "last_reporting_date": "29/1/2020", "was_reported": false}
 ];
-
-const buyer1 = {"id": 111, "name": "avabash"};
-const buyer2 = {"id": 222, "name": "yosi"};

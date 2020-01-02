@@ -1,11 +1,11 @@
-import "Stubs";
+const stub_data = require('./Data_Stub.js');
 
 class Dal_stub{
-    add_4g = function (file) {
+    add_4g (file) {
         return true;
     };
 
-    get_appartement = function(block, building, appartement){
+    get_appartement(block, building, appartement){
         if(!block || ! building || ! appartement)
             throw ErrorEvent;
         for(let prop in properties){
@@ -14,7 +14,7 @@ class Dal_stub{
         }
     };
 
-    get_appartements = function (block, building) {
+    get_appartements(block, building) {
         if(!block || ! building)
             throw ErrorEvent;
         let ret = [];
@@ -25,7 +25,7 @@ class Dal_stub{
         return ret;
     };
 
-    get_buildings = function (block) {
+    get_buildings(block) {
         if(!block)
             throw ErrorEvent;
         let ret = [];
@@ -36,7 +36,7 @@ class Dal_stub{
         return ret;
     };
 
-    add_purchase = function(appartement_purchase, first_buyer_name, first_buyer_id, second_buyer_name = null,
+    add_purchase(appartement_purchase, first_buyer_name, first_buyer_id, second_buyer_name = null,
                             second_buyer_id = null, date){
         for(var purch in purchases){
             if(appartement_purchase === purch["apartment_idx"])
@@ -56,7 +56,7 @@ class Dal_stub{
         return new_purch;
     };
 
-    get_purchase = function(block_num, building_num, appartement_num){
+    get_purchase(block_num, building_num, appartement_num){
         for(var purch in purchases){
             if(purch['block'] === block_num &&
                 purch['building'] === building_num && purch['appartement'] === appartement_num){
@@ -66,7 +66,7 @@ class Dal_stub{
         return null;
     };
 
-    set_purchase = function(block_num, building_num, appartement_num, new_purchase_features){
+    set_purchase(block_num, building_num, appartement_num, new_purchase_features){
         for(var purch in purchases){
             if(purch['block'] === block_num &&
                 purch['building'] === building_num && purch['appartement'] === appartement_num){
@@ -77,7 +77,7 @@ class Dal_stub{
         return false;
     };
 
-    get_all_unreported_purchases = function(){
+    get_all_unreported_purchases(){
         let ret = [];
         for(var purch in purchases){
             if(!purch['was_reported'])
@@ -86,7 +86,7 @@ class Dal_stub{
         return ret;
     };
 
-    register_new_costumer = function(username, password, mail){
+    register_new_costumer(username, password, mail){
         for(var cust in Costumers){
             if(username === cust['name'])
                 return false;
@@ -95,7 +95,7 @@ class Dal_stub{
         return true;
     };
 
-    register_new_lawyer = function(username, password, mail){
+    register_new_lawyer(username, password, mail){
         for(var cust in Lawyers){
             if(username === cust['name'])
                 return false;
@@ -104,7 +104,7 @@ class Dal_stub{
         return true;
     };
 
-    get_user = function(username){
+    get_user(username){
         let cust = Costumers.filter((customer) => costumer['name'] === username);
         if (cust.length === 1)
             return cust[0]
@@ -118,7 +118,7 @@ class Dal_stub{
         throw ErrorEvent();
     };
 
-    extract_files_for_purchases = function(purchase){
+    extract_files_for_purchases(purchase){
         return null;
     };
 }

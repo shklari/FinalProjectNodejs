@@ -1,10 +1,10 @@
 //import {Dal_Stub} from "./Stubs";'
 
-const Dal= require("Domain/Data/Dal/js");
+const Dal = require('./Stubs/Dal_Stub.js');
 const express = require('express');
+var bodyParser = require('body-parser');
 const app = express();
 const port = 8080;
-var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 let data = new Dal();
