@@ -1,7 +1,16 @@
-class Dal{
+import "Stubs";
+
+class Dal_stub{
     add_4g = function (file) {};
 
-    get_appartement = function(block, building, appartement){};
+    get_appartement = function(block, building, appartement){
+        if(!block || ! building || ! appartement)
+            throw ErrorEvent;
+        for(let prop in Dal_stub.properties){
+            if((prob.block && prop.block === block) && prop.buliding === building && prop.appartement === appartement)
+                return prop;
+        }
+    };
 
     get_appartements = function (block, building) {
 
