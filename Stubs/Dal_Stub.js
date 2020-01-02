@@ -1,7 +1,9 @@
 import "Stubs";
 
 class Dal_stub{
-    add_4g = function (file) {};
+    add_4g = function (file) {
+        return true;
+    };
 
     get_appartement = function(block, building, appartement){
         if(!block || ! building || ! appartement)
@@ -116,5 +118,7 @@ class Dal_stub{
         throw ErrorEvent();
     };
 
-    extract_files_for_purchases = function(purchase){};
+    extract_files_for_purchases = function(purchase){
+        return null;
+    };
 }
