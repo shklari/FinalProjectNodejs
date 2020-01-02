@@ -1,6 +1,9 @@
 const stub_data = require('./Data_Stub.js');
 
 class Dal_stub{
+
+    constructor(){}
+
     add_4g (file) {
         return true;
     };

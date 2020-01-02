@@ -2,12 +2,12 @@
 
 const Dal = require('./Stubs/Dal_Stub.js');
 const express = require('express');
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const app = express();
 const port = 8080;
 app.use(bodyParser.urlencoded({ extended: true }));
 
-let data = new Dal();
+let data = new Dal.constructor();
 
 app.get('/apartments/:block?/:building?/:apartment?', (req, res) => {
     const block = req.params.block;
