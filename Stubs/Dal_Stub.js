@@ -6,18 +6,32 @@ class Dal_stub{
     get_appartement = function(block, building, appartement){
         if(!block || ! building || ! appartement)
             throw ErrorEvent;
-        for(let prop in Dal_stub.properties){
+        for(let prop in properties){
             if((prob.block && prop.block === block) && prop.buliding === building && prop.appartement === appartement)
                 return prop;
         }
     };
 
     get_appartements = function (block, building) {
-
+        if(!block || ! building)
+            throw ErrorEvent;
+        let ret = [];
+        for(let prop in properties){
+            if((prob.block && prop.block === block) && prop.buliding === building)
+                ret.push(prop);
+        }
+        return ret;
     };
 
     get_buildings = function (block) {
-
+        if(!block)
+            throw ErrorEvent;
+        let ret = [];
+        for(let prop in properties){
+            if(prob.block && prop.block === block)
+                ret.push(prop);
+        }
+        return ret;
     };
 
     add_purchase = function(appartement_purchase, first_buyer_name, first_buyer_id, second_buyer_name = null,
