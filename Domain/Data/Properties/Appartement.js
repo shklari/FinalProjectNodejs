@@ -4,7 +4,7 @@ class Appartement{
     balcony;
     garage_idx;
     garage_size;
-    parjungs_num;
+    parkings_num;
     parking1;
     parking2;
     price;

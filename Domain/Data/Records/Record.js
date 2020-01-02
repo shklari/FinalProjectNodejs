@@ -1,5 +1,5 @@
 class Purchase{
-    appartement_idx;
+    apartement_idx;
     buyer1;
     buyer2;
     parking1;
